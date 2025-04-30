@@ -1,0 +1,127 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  h1, h2 {
+    color: #2c6b2f;
+  }
+  
+  /* App Component */
+  .app-container {
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding: 32px;
+  }
+  
+  .app-card {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 24px;
+  }
+  
+  .app-header {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #2c6b2f;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+  
+  button {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Button Colors */
+  .upload-btn {
+    background-color: #28a745;
+  }
+  
+  .download-btn {
+    background-color: #007bff;
+  }
+  
+  .email-btn {
+    background-color: #ffc107;
+  }
+  
+  .reset-btn {
+    background-color: #dc3545;
+  }
+  
+  /* DataTable Component */
+  .data-table-container {
+    overflow-x: auto;
+    margin-top: 24px;
+  }
+  
+  .data-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .data-table th {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .data-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .input-cell {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .input-cell:focus {
+    border-color: #28a745;
+  }
+  
