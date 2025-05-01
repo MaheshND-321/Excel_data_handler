@@ -34,6 +34,7 @@ def upload_csv():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+    
 
 @app.route('/save-data', methods=['POST'])
 def save_data():

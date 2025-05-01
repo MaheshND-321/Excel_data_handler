@@ -9,7 +9,6 @@ const DataTable = ({ data, setData }) => {
     setData(newData);
   };
 
-  // Filter out rows that have no data in any cell
   const filteredData = data.filter((row) =>
     Object.values(row).some((value) => value && value.trim() !== "")
   );

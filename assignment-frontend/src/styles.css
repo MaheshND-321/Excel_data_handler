@@ -1,127 +1,103 @@
-/* Global Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    background-color: #f0f0f0;
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  h1, h2 {
-    color: #2c6b2f;
-  }
-  
-  /* App Component */
-  .app-container {
-    min-height: 100vh;
-    background-color: #f0f0f0;
-    padding: 32px;
-  }
-  
-  .app-card {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 24px;
-  }
-  
-  .app-header {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 24px;
-    text-align: center;
-    color: #2c6b2f;
-  }
-  
-  .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 24px;
-  }
-  
-  button {
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Button Colors */
-  .upload-btn {
-    background-color: #28a745;
-  }
-  
-  .download-btn {
-    background-color: #007bff;
-  }
-  
-  .email-btn {
-    background-color: #ffc107;
-  }
-  
-  .reset-btn {
-    background-color: #dc3545;
-  }
-  
-  /* DataTable Component */
-  .data-table-container {
-    overflow-x: auto;
-    margin-top: 24px;
-  }
-  
-  .data-table {
-    width: 100%;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-collapse: collapse;
-  }
-  
-  .data-table th,
-  .data-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .data-table th {
-    background-color: #28a745;
-    color: white;
-  }
-  
-  .data-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .data-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .input-cell {
-    width: 100%;
-    padding: 8px;
-    font-size: 0.9rem;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    outline: none;
-  }
-  
-  .input-cell:focus {
-    border-color: #28a745;
-  }
-  
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url("https://images.unsplash.com/photo-1519389950473-47ba0277781c") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6); 
+  z-index: -1;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.app-card {
+  background-color: rgba(255, 255, 255, 0.85); 
+  border-radius: 16px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 1000px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  color: #222;
+}
+
+.app-header {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.input-cell {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 200px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  background-color: #00a8ff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0090e0;
+}
+
+.data-table-container {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #ccc;
+  color: #222;
+}
+
+.data-table input {
+  width: 100%;
+  padding: 8px;
+  background-color: rgba(240, 240, 240, 1);
+  border: 1px solid #ccc;
+  color: #222;
+  border-radius: 6px;
+}

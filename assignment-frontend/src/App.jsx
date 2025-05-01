@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "./components/DataTable";
 import "./styles.css";
@@ -6,9 +6,26 @@ import "./styles.css";
 const App = () => {
   const [file, setFile] = useState(null);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [fileName, setFileName] = useState("");
+
+  // Load previously saved data on mount
+  useEffect(() => {
+    const fetchSavedData = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/data");
+        setData(res.data);
+      } catch (err) {
+        console.error("Failed to load saved data:", err);
+      }
+    };
+    fetchSavedData();
+  }, []);
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    setFileName(selectedFile?.name || "");
   };
 
   const handleSaveData = async () => {
@@ -27,6 +44,7 @@ const App = () => {
       return;
     }
 
+    setLoading(true);
     const formData = new FormData();
     formData.append("file", file);
 
@@ -38,6 +56,8 @@ const App = () => {
     } catch (err) {
       console.error(err);
       alert("Upload failed.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -73,6 +93,7 @@ const App = () => {
       await axios.post("http://localhost:5000/reset");
       setData([]);
       setFile(null);
+      setFileName("");
       alert("Data reset.");
     } catch (err) {
       console.error(err);
@@ -92,13 +113,15 @@ const App = () => {
             onChange={handleFileChange}
             className="input-cell"
           />
+          {fileName && <p className="text-sm text-white">{fileName}</p>}
+          {loading && <p className="text-white">Loading...</p>}
           <button onClick={handleUpload} className="upload-btn">
             Upload
           </button>
           <button onClick={handleDownload} className="download-btn">
             Download CSV
           </button>
-          <button onClick={handleSaveData} className="upload-btn">
+          <button onClick={handleSaveData} className="save-btn">
             Save Changes
           </button>
           <button onClick={handleEmail} className="email-btn">
