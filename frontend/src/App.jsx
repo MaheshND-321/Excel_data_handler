@@ -3,7 +3,7 @@ import axios from "axios";
 import "./styles.css";
 import DataTable from "./components/DataTable";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+const VITE_VITE_API_BASE_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [file, setFile] = useState(null);
@@ -18,7 +18,7 @@ function App() {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      await axios.post("${API_BASE_URL}/upload", formData);
+      await axios.post("${VITE_API_BASE_URL}/upload", formData);
       alert("File uploaded successfully");
     } catch (err) {
       alert("Upload failed");
@@ -39,7 +39,7 @@ function App() {
 
   const handleDisplay = async () => {
     try {
-      const res = await axios.get("${API_BASE_URL}/data");
+      const res = await axios.get("${VITE_API_BASE_URL}/data");
       if (res.data && Array.isArray(res.data)) {
         setData(res.data);
       } else {
@@ -52,7 +52,7 @@ function App() {
 
   const handleSaveData = async () => {
     try {
-      await axios.post("${API_BASE_URL}/save-data", { data });
+      await axios.post("${VITE_API_BASE_URL}/save-data", { data });
       alert("Changes saved");
     } catch (err) {
       alert("Failed to save data");
@@ -88,7 +88,7 @@ function App() {
         },
       ];
 
-      await axios.post("${API_BASE_URL}/send-email", {
+      await axios.post("${VITE_API_BASE_URL}/send-email", {
         to: recipientEmail,
         uploaded_data: uploadedData,
       });
@@ -101,7 +101,7 @@ function App() {
   const handleFilteredDownload = async () => {
     try {
       const res = await axios.post(
-        "${API_BASE_URL}/download",
+        "${VITE_API_BASE_URL}/download",
         {
           date: filterDate,
           restaurant: filterRestaurant,
@@ -121,7 +121,7 @@ function App() {
 
   const handleDelete = async () => {
     try {
-      const res = await axios.post("${API_BASE_URL}/delete", {
+      const res = await axios.post("${VITE_API_BASE_URL}/delete", {
         date: filterDate,
         restaurant: filterRestaurant,
       });
@@ -134,7 +134,7 @@ function App() {
 
   const handleReset = async () => {
     try {
-      await axios.post("${API_BASE_URL}/reset");
+      await axios.post("${VITE_API_BASE_URL}/reset");
       alert("Data reset");
       setData([]);
     } catch (err) {
