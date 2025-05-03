@@ -28,18 +28,29 @@ A full-stack web application that allows users to upload restaurant order data i
 
 project-root/
 │
-├── backend/ # Flask backend (API logic, file handling, emailing)
+├── backend/ # Flask backend (API logic, file handling, emailing) 
+
 │ ├── app.py # Main Flask app
+
 │ ├── routes/ # API routes
+
 │ └── ...
+
 │
 ├── frontend/ # React Vite frontend
+
 │ ├── src/
+
 │ │ ├── App.jsx
+
 │ │ ├── main.jsx
+
 │ │ └── components/
+
 │ ├── public/
+
 │ ├── .env
+
 │ └── ...
 
 
@@ -53,6 +64,8 @@ project-root/
 ```bash
 git clone https://github.com/your-username/excel-data-handler-app.git
 cd excel-data-handler-app
+
+```
 ## 2. Backend Setup (Flask)
 
 cd backend
