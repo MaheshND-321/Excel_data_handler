@@ -2,3 +2,6 @@ Flask
 Flask-Cors
 Flask-Mail
 pandas
+gunicorn
+Flask-Mail
+python-dotenv

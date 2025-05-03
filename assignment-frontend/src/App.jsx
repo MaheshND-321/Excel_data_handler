@@ -8,6 +8,7 @@ function App() {
   const [data, setData] = useState([]);
   const [filterDate, setFilterDate] = useState("");
   const [filterRestaurant, setFilterRestaurant] = useState("");
+  const [recipientEmail, setRecipientEmail] = useState("");
 
   const handleFileChange = (e) => setFile(e.target.files[0]);
 
@@ -58,10 +59,40 @@ function App() {
 
   const handleEmail = async () => {
     try {
-      await axios.post("http://localhost:5000/send-email");
-      alert("Email sent");
+      const uploadedData = [
+        {
+          "Commission %": "8",
+          Copay: "",
+          "Copay Amount": "0",
+          "Delivery Discount": "0",
+          "GF Platform Fee": "56.79",
+          "GST on GF Platform Fee": "10.22",
+          "GST on commission %": "18%",
+          Locality: "Basavanna nagar main road, hoodi",
+          "Net Bill Value": "531",
+          "ONDC Order ID": "GF4004741524",
+          "Order Date": "2025-03-03T07:57:17.680Z",
+          "Order Status": "Completed",
+          "Order Total": "709.92",
+          "Restaurant ID": "GFFBRTBI1698734884",
+          "Restaurant Name": "Biryani boxx1",
+          "Self Delivery Charges": "0",
+          TCS: "0",
+          TDS: "0.571",
+          "Total Container Charge": "40",
+          "Total GST": "28.58",
+          "Total Payable to Merchant": "503.41",
+          order_date: "2025-03-03",
+        },
+      ];
+
+      await axios.post("http://localhost:5000/send-email", {
+        to: recipientEmail,
+        uploaded_data: uploadedData,
+      });
+      alert("Email sent successfully");
     } catch (err) {
-      alert("Failed to send email");
+      alert("Error sending email");
     }
   };
 
@@ -120,6 +151,11 @@ function App() {
           <button onClick={handleFilteredDownload}>Download (Filtered)</button>
           <button onClick={handleDelete}>Delete (Filtered)</button>
           <button onClick={handleSaveData}>Save Changes</button>
+          <input
+            placeholder="Recipient Email"
+            value={recipientEmail}
+            onChange={(e) => setRecipientEmail(e.target.value)}
+          />
           <button onClick={handleEmail}>Send Email</button>
           <button onClick={handleReset}>Reset</button>
         </div>
